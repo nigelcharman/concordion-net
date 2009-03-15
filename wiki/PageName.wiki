@@ -1,0 +1,10 @@
+#summary Getting Started
+
+= Introduction =
+
+Welcome to the Concordion.Net project
+
+
+= Details =
+
+This page will detail how to get started with Concordion.Net
