@@ -1,13 +1,12 @@
-#summary One-sentence summary of this page.
+#summary Differences between Java and .Net versions
+#labels Featured
 
 = Introduction =
 
-Add your content here.
+There are some minor differences in how the Java and .Net versions and operate with concordion.  These are listed below.
 
+== Location of HTML Files ==
 
-= Details =
+In the Java version the .java and .html files reside side-by-side in the same directory structure.  So a directory with test.html has an accompanying test.java included.  This is because of how Java strictly enforces the namespace in the directory tree.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+In the .Net version the location of a class file in the directory structure has little to do with its namespace.  There is no linkage between the two.  Thus with the .Net version you must specify the base directory where your specifications are stored and the output directory where you would like the results to go.
