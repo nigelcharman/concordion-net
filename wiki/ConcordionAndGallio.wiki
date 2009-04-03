@@ -1,0 +1,17 @@
+#summary The Gallio Framework
+#labels Featured
+
+= Introduction =
+
+There is an excellent framework for unit testing in .Net called Gallio.  This framework supports a large number of runners in a number of different models so it seemed a natural place to put Concordion tests.
+
+= Details =
+
+To run Concordion you will now be required to use Gallio.  You must get the Gallio.ConcordionAdapter.dll and Gallio.ConcordionAdapter.plugin files and place them somewhere that Gallio can find them.  After doing this you can add your Concordion assembly and Gallio will find them and run them.
+
+== Results ==
+
+Results will be stored in either of:
+
+* The BaseOutputDirectory specified in the ConcordionAssembly attribute of your assembly. OR
+* The current working directory if no BaseOutputDirectory is specified. (this may change to the user's current temporary directory or the value of the TEMP environment variable)
