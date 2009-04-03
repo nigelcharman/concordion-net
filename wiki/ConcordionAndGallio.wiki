@@ -13,5 +13,5 @@ To run Concordion you will now be required to use Gallio.  You must get the Gall
 
 Results will be stored in either of:
 
-*  The BaseOutputDirectory specified in the ConcordionAssembly attribute of your assembly. OR
-*  The current working directory if no BaseOutputDirectory is specified. (this may change to the user's current temporary directory or the value of the TEMP environment variable)
+  * The BaseOutputDirectory specified in the ConcordionAssembly attribute of your assembly. OR
+  * The current working directory if no BaseOutputDirectory is specified. (this may change to the user's current temporary directory or the value of the TEMP environment variable)
