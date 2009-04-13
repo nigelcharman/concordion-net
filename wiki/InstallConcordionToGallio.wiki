@@ -19,3 +19,4 @@ You will need the following:
 
   * The Concordion Adapter only works with v3.0.5.546 of Gallio currently.  Plans to expand this to other releases is in the works.
   * After you set the plugin directory you will have to restart Gallio for Gallio to be able to find and load the plugin properly.
+  * This guide only applies to the Icarus GUI Test Runner.
