@@ -1,0 +1,21 @@
+#summary How To Install Concordion to Gallio
+
+= Requirements =
+
+You will need the following:
+
+  * Gallio v3.0.5.546 installed. (The plugin only works with this version currently)
+  * Concordion installed to a directory on your local machine (we will call this CONCORDION_HOME)
+
+
+= Procedure =
+
+  # Install Gallio
+  # Install Concordion
+  # Set the plugin directory to point to CONCORDION_HOME
+  # Restart Gallio
+
+= Caveats =
+
+  * The Concordion Adapter only works with v3.0.5.546 of Gallio currently.  Plans to expand this to other releases is in the works.
+  * After you set the plugin directory you will have to restart Gallio for Gallio to be able to find and load the plugin properly.
