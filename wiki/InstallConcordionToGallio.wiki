@@ -5,7 +5,7 @@
 You will need the following:
 
   * Gallio v3.0.5.546
-  * Concordion.NET v0.1.x.x
+  * Concordion.NET v0.1.21.66
 
 = Procedure =
 
