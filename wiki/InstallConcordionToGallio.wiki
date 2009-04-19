@@ -1,4 +1,4 @@
-#summary How To Install Concordion to Gallio
+#summary How To Install Concordion to Gallio Icarus runner
 
 = Requirements =
 
