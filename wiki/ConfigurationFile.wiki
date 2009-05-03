@@ -1,4 +1,5 @@
 #summary The Concordion.NET Configuration file
+#labels Featured
 
 = Introduction =
 
