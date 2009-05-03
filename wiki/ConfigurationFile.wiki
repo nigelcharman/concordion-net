@@ -1,0 +1,40 @@
+#summary The Concordion.NET Configuration file
+
+= Introduction =
+
+The configuration file is meant to be a place where you can control/customise certain aspects of how concordion works, be it specifying runners, the base input or output directory, etc.
+
+
+= Example =
+
+{{{
+<?xml version="1.0" encoding="utf-8" ?>
+<Concordion>
+  <BaseInputDirectory>C:\Dev\concordion-net\Specifications</BaseInputDirectory>
+  <BaseOutputDirectory>C:\Dev\concordion-net\Results</BaseOutputDirectory>
+  <SpecificationAssemblies>
+    <SpecificationAssembly>Concordion.Spec, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</SpecificationAssembly>
+  </SpecificationAssemblies>
+  <Runners>
+    <Runner alias="runtestrunner" type="Concordion.Spec.Concordion.Command.Run.RunTestRunner, Concordion.Spec, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  </Runners>
+</Concordion>
+}}}
+
+= Element Descriptions =
+
+== BaseInputDirectory ==
+
+The BaseInputDirectory element tells Concordion where to look for the specifications.  If this element is not specified then Concordion attempts to look in the current working directory for the specification folders.
+
+== BaseOutputDirectory ==
+
+The BaseOutputDirectory element tells Concordion where to place the results of running the specifications.  If this element is not specified then Concordion places the output in the directory defined by the users TEMP environment variable.
+
+== SpecificationAssemblies ==
+
+This element contains one or more SpecificationAssembly elements, defining each assembly
+
+=== SpecificationAssembly ===
+
+Tis element provides the [http://msdn.microsoft.com/en-us/library/system.type.assemblyqualifiedname.aspx "Assembly Qualified"] name of the assembly where the specifications are stored.
