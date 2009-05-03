@@ -9,7 +9,7 @@ There are some minor differences in how the Java and .Net versions and operate w
 
 In the Java version the .java and .html files reside side-by-side in the same directory structure.  So a directory with test.html has an accompanying test.java included.  This is because of how Java strictly enforces the namespace in the directory tree.
 
-In Concordion.Net the location of a class file in the directory structure has no relation to its namespace.  Thus with the .Net version you may specify the base directory where your specifications are stored and the output directory where you would like the results to go.
+In Concordion.Net the location of a class file in the directory structure has no relation to its namespace.  Thus with the .Net version you may specify the base directory where your specifications are stored and the output directory where you would like the results to go.  This is done in the ConfigurationFile.
 
 By default, the Concordion.NET framework uses the current working directory as the location of the specifications and writes all output to the location specified in the TEMP environment variable.
 
@@ -22,3 +22,7 @@ Some HTML output will differ between the .NET and Java versions of the Framework
 == Exception Stack Trace Output ==
 
 The stack traces will differ slightly in format from the Java and .NET versions of the framework but this is because of the different way that .NET outputs Exception messages.
+
+== Run Command ==
+
+The run command does not use the system properties like Java does, but instead uses information from the ConfigurationFile.
