@@ -37,4 +37,12 @@ This element contains one or more SpecificationAssembly elements, defining each 
 
 === SpecificationAssembly ===
 
-Tis element provides the [http://msdn.microsoft.com/en-us/library/system.type.assemblyqualifiedname.aspx "Assembly Qualified"] name of the assembly where the specifications are stored.
+This element provides the [http://msdn.microsoft.com/en-us/library/system.type.assemblyqualifiedname.aspx "Assembly Qualified"] name of an assembly that contains specifications.  Note that only classes marked with the [ConcordionTest] attribute will be recognised by Gallio when run.
+
+== Runners ==
+
+Runners are used to call and run one specification from another specification.  Another specification may be in a different testing suite (like FIT, FitNesse, Cucumber, etc.)
+
+=== Runner ===
+
+Each runner element has two attributes that must be present to be recognised properly.  They are "alias" and "type".  The alias is used to refer to the type in the concordion:run="alias" statement.  The type is the Assembly-Qualified Name of the type that you will associate with the alias and will be used to run the called specification.  See the specification for Run for more details.
