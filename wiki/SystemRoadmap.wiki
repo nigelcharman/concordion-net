@@ -13,6 +13,7 @@
   * add the output specification to Gallio as a report
   * provide a sample project for beginners to reference
   * output XML documentation for the API as an HTML Help file.
+  * implement DI with Ninject
 
 =RC=
 
