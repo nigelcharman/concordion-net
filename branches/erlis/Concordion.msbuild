@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="tools\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+  <UsingTask AssemblyFile="tools\Gallio-3.0.5.546\bin\Gallio.MSBuildTasks.dll" TaskName="Gallio" />
+
+
+  <PropertyGroup>
+    <Major>0</Major>
+    <Minor>1</Minor>
+    <Build>1</Build>
+    <Revision>9999</Revision>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <DefaultExclude Include="**\.svn\**" />
+    <DefaultExclude Include="**\Test\**" />
+    <DefaultExclude Include="**\TestResults\**" />
+	<DefaultExclude Include="tools\**" />
+	<DefaultExclude Include="Results\**" />
+	<DefaultExclude Include="Reports\**" />
+    <DefaultExclude Include="**\doc\**" />
+    <DefaultExclude Include="**\www\**" />
+    <DefaultExclude Include="**\*.user" />
+    <DefaultExclude Include="**\*.suo" />
+    <DefaultExclude Include="**\*.zip" />
+    <DefaultExclude Include="**\*.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ZipFiles Include="Concordion\bin\Release\Concordion.dll" />
+	<ZipFiles Include="Concordion\bin\Release\Concordion.pdb" />
+	<ZipFiles Include="Concordion\bin\Release\OGNL.dll" />
+	<ZipFiles Include="Concordion.Spec\bin\Release\Concordion.Spec.dll" />
+	<ZipFiles Include="Concordion.Spec\bin\Release\Concordion.Spec.pdb" />
+	<ZipFiles Include="Concordion.Test\bin\Release\Concordion.Test.dll" />
+	<ZipFiles Include="Concordion.Test\bin\Release\Concordion.Test.pdb" />
+	<ZipFiles Include="Concordion.Test\bin\Release\Moq.dll" />
+	<ZipFiles Include="Concordion.Test\bin\Release\xunit.dll" />
+	<ZipFiles Include="Gallio.ConcordionAdapter\bin\Release\Gallio.ConcordionAdapter.dll" />
+	<ZipFiles Include="Gallio.ConcordionAdapter\bin\Release\Gallio.ConcordionAdapter.xml" />
+	<ZipFiles Include="Gallio.ConcordionAdapter\bin\Release\Gallio.ConcordionAdapter.pdb" />
+	<ZipFiles Include="Gallio.ConcordionAdapter\Gallio.ConcordionAdaptor.plugin" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TestAssemblies Include="Concordion.Spec\bin\Release\Concordion.Spec.dll" />
+	<Plugins Include="Gallio.ConcordionAdapter\bin\Debug" />
+  </ItemGroup>
+
+  <Target Name="Version">
+    <PropertyGroup>
+      <Version>$(build_number)</Version>
+    </PropertyGroup>
+
+    <Message Text="Version: $(Version)"/>
+
+    <AssemblyInfo CodeLanguage="CS" 
+      OutputFile="Concordion\Properties\AssemblyInfo.cs"
+      AssemblyTitle="Concordion.NET"
+      AssemblyDescription="Concordion Acceptance Testing Framework"
+      AssemblyCompany="http://code.google.com/p/concordion-net/"
+      AssemblyProduct="Concordion"
+      AssemblyCopyright="Copyright © Jeffrey Cameron 2009"     
+      ComVisible="false"
+      CLSCompliant="true"
+      Guid="923eb1d8-0d6a-4a05-896c-16f127f2944f"
+      AssemblyVersion="$(Version)"
+      AssemblyFileVersion="$(Version)"
+      Condition="$(Revision) != '0' "/>
+	  
+  </Target>
+
+  <Target Name="Compile" DependsOnTargets="Version">
+    <MSBuild Projects="Concordion.sln"
+             Properties="Configuration=Release" />
+  </Target>
+
+  <Target Name="Test-Specs" DependsOnTargets="Compile">
+    <Gallio Assemblies="@(TestAssemblies)"
+            PluginDirectories="@(Plugins)"
+            ReportDirectory="Reports"
+            ReportTypes="XHtml"
+            ShowReports="false"
+            IgnoreFailures="true"
+            RunnerType="Local"
+            RunnerExtensions="TeamCityExtension,Gallio.TeamCityIntegration" />
+  </Target>
+
+  <Target Name="Zip" DependsOnTargets="Test-Specs">
+    <MakeDir Directories="deploy"/>
+    <Zip Files="@(ZipFiles)" Flatten="true"
+         ZipFileName="deploy\Concordion-$(Version).zip" />
+  </Target>
+
+  <Target Name="Build" DependsOnTargets="Zip">
+    <Message Text="Concordion Build Complete"/>
+  </Target>
+
+</Project>
