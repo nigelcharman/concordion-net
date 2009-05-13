@@ -1,7 +1,4 @@
-﻿// Copyright 2009 Jeffrey Cameron
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
+﻿// you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
 //   http://www.apache.org/licenses/LICENSE-2.0
@@ -20,14 +17,10 @@ using System.Text;
 namespace Concordion.Api
 {
     /// <summary>
-    /// Records the results of running a specification and indicates whether or not the specification passed or failed
+    /// Indicates to Concordion if a Class is not yet implemented and should have no assertions
     /// </summary>
-    public interface IResultRecorder
+    [AttributeUsage(AttributeTargets.Class)]
+    public class UnimplementedAttribute : Attribute
     {
-        /// <summary>
-        /// Records the specified result.
-        /// </summary>
-        /// <param name="result">The result.</param>
-        void Record(Result result);
     }
 }
