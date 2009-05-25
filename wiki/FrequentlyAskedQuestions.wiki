@@ -1,5 +1,12 @@
-#summary Frequently Asked Questions about Concordion.NET
+#summary Frequently Asked Questions about Concordion
+#labels Featured
 
 = I followed your configuration instructions and Gallio finds the assembly but no tests are loaded? =
 
-Try adding a concordion.config file to the directory where your Gallio.Concordion adapter and Concordion.dll files are.  The config file determines where the specs are read from as well as some other items and currently without this file being present you will get an error when loading.
+There could be several reasons for this problem:
+
+1.  Are your specification fixtures declared public? Gallio will only look for exported (or public) types so any specification fixture you declare must be declared public to be found.
+
+2.  Is your specification fixture decorated with the [ConcordionTest] attribute?  The Gallio.ConcordionAdapter plugin will only consider classes with this attribute as a specification to run.
+
+3.  To run Concordion tests properly Gallio must be using the Local runner.  See the Gallio help for more on this. (This is a bit of a limitation right now, but I hope to resolve this issue in the future)
