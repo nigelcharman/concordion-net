@@ -1,0 +1,23 @@
+#summary How does Gallio find Concordion specifications?
+#labels Featured,Phase-Design
+
+= Why doesn't Gallio find my specifications? =
+
+In the early stages of development with Gallio there has been a lot of issues with how Gallio finds the Concordion specifications and runs them.  This article hopes to resolve that issue by defining exactly how Gallio 
+
+For the Gallio framework to find and execute the Concordion specifications the following requirements must be in place:
+
+  # Gallio must successfully find and load the Gallio.ConcordionAdapter plugin.  This plugin is specific to a version of Gallio so if the plugin is not being loaded you should verify that it works with the latest Gallio.
+  # Gallio must be searching the assembly where the specifications reside.  In Gallio.Echo this means that the assembly must be specified on the command line.  In Gallio.Icarus it means the assembly must be added to the current project.
+  # Gallio then searches the current assembly for two things.  If either condition is not present then the plugin will not explore the specification assembly for tests.
+  ## The ConcordionAssembly attribute. This must be specified as an assembly-level attribute in your AssemblyInfo.cs (or other appropriate place) like so [assembly:ConcordionAssembly]
+  ## The specification assembly must have a reference to the Concordion.dll assembly
+  # Gallio then searches all exported types (classes marked as public) looking for types with the ConcordionTest attribute.
+  # If an exported type with the ConcordionTest attribute on it is found then Gallio tries to execute the specification with Concordion and reports the results
+  # When Concordion finds a specification fixture to run it has to find the .html file that contains the specification itself.  It cannot do this without a properly specified configuration file for the specification assembly that has an InputDirectory element pointing to the root directory where the specifications reside.
+  # If all goes well Gallio will report successes and failures back to you!
+
+= Caveats =
+
+  * In build 0.1.31.94 and earlier the ConcordionAssembly attribute needs to take two parameters.  This is a bug.  The arguments are ignored by Concordion but need to be there.  You can place dummy values in the arguments.  *This is fixed in later versions*
+
