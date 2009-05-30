@@ -15,9 +15,9 @@ For the Gallio framework to find and execute the Concordion specifications the f
   # Gallio then searches all exported types (classes marked as public) looking for types with the {{{[ConcordionTest]}}} attribute.
   # If an exported type with the {{{[ConcordionTest]}}} attribute on it is found then Gallio tries to execute the specification with Concordion and reports the results
   # When Concordion finds a specification fixture to run it has to find the .html file that contains the specification itself.  It does this by:
-    # Removing the word Test from the end of the fixture name and appending .html to the end of the fixture name.  Thus, AccountTest.cs looks for Account.html
-    # It determines the directory the specification resides in by taking the namespace of the fixture and replacing the '.' with '\' and prepending the BaseInputDirectory from the specification configuration file. 
-    # Example:  BaseInputDirectory of C:\Specifications, Namespace of Com.MyCompany and Fixture of AccountTest.cs will look for its matching specification at C:\Specifications\Com\MyCompany\Account.html
+    # Removing the word Test from the end of the fixture name and appending .html to the end of the fixture name.  Thus, !AccountTest.cs looks for Account.html
+    # It determines the directory the specification resides in by taking the namespace of the fixture and replacing the '.' with '\' and prepending the !BaseInputDirectory from the specification configuration file. 
+    # Example:  !BaseInputDirectory of C:\Specifications, !Namespace of Com.!MyCompany and Fixture of !AccountTest.cs will look for its matching specification at C:\Specifications\Com\!MyCompany\Account.html
   # If all goes well Gallio will report successes and failures back to you!
 
 = Caveats =
