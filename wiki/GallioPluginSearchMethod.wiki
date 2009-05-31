@@ -3,7 +3,7 @@
 
 = How does Gallio find my specifications? =
 
-In the early stages of development with Gallio there has been a lot of issues with how Gallio finds the Concordion specifications and runs them.  This article hopes to resolve that issue by defining exactly how Gallio 
+In the early stages of development with Gallio there has been a lot of issues with how Gallio finds the Concordion specifications and runs them.  This article hopes to resolve that issue by defining exactly how Concordion links a specification file to a fixture.
 
 For the Gallio framework to find and execute the Concordion specifications the following requirements must be in place:
 
