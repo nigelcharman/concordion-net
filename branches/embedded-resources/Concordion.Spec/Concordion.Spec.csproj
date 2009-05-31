@@ -239,7 +239,9 @@
     <EmbeddedResource Include="concordion.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <Content Include="Concordion\Command\Results\Stylesheet\Stylesheet.html" />
+    <EmbeddedResource Include="Concordion\Command\Results\Stylesheet\Stylesheet.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Concordion\Integration\Integration.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
