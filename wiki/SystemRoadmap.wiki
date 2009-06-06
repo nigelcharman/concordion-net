@@ -17,6 +17,7 @@
 =RC=
 
   * improve documentation on wiki for users
+  * add a visual studio Concordion project type with two new file types for the specification and the specification fixture
 
 =GA=
 
